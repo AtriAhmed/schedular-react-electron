@@ -1,0 +1,13 @@
+.print-source {
+  display: none !important;
+}
+
+body > .print-source {
+  display: block !important;
+}
+
+@media print {
+  .print-source {
+    display: block !important;
+  }
+}
