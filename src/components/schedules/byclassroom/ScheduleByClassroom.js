@@ -1,3 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable promise/always-return */
+/* eslint-disable promise/catch-or-return */
+/* eslint-disable array-callback-return */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable radix */
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -14,6 +22,13 @@ import TdToPrint from './TdToPrintByClassroom';
 import '../ToPrint.css';
 
 export default function ScheduleByClassroom() {
+  const [fontsize, setFontsize] = useState(12);
+
+  const handleFontsize = (e) => {
+    e.persist();
+    setFontsize(e.target.value);
+  };
+
   function organise(item, day, data, setdata) {
     if (item.weekday == day) {
       if (item.start_time == '08:00:00') {
@@ -1166,7 +1181,11 @@ export default function ScheduleByClassroom() {
         <div
           ref={componentRef}
           className="container d-flex align-items-center justify-content-center p-5"
-          style={{ fontSize: '16px' }}
+          style={{
+            height: '794px',
+            width: '1123px',
+            fontSize: `${fontsize}px`,
+          }}
         >
           <div>
             <div className="text-center mb-4">
@@ -1265,6 +1284,21 @@ export default function ScheduleByClassroom() {
               </table>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <label>Sélectionner taille de police</label>
+        <div className="input-group mb-3">
+          <select
+            name="classroom_id"
+            onChange={handleFontsize}
+            value={fontsize}
+            className="form-control"
+          >
+            <option value={16}>16</option>
+            <option value={14}>14</option>
+            <option value={12}>12</option>
+          </select>
         </div>
       </div>
     </div>
