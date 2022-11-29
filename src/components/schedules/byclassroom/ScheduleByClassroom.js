@@ -1182,8 +1182,8 @@ export default function ScheduleByClassroom() {
           ref={componentRef}
           className="container d-flex align-items-center justify-content-center p-5"
           style={{
-            height: '794px',
-            width: '1123px',
+            height: '100%',
+            width: '100%',
             fontSize: `${fontsize}px`,
           }}
         >
